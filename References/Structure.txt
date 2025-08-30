@@ -1,0 +1,37 @@
+newsly-backend/
+│── package.json
+│── server.js                # entry point
+│── .env                      # secrets (DB URL, JWT secret, API keys)
+│── .gitignore
+│
+├── config/
+│   └── db.js                 # MongoDB connection setup
+│
+├── models/                   # Mongoose schemas
+│   ├── User.js
+│   ├── Bookmark.js
+│   └── NewsPreference.js
+│
+├── routes/                   # Express routers
+│   ├── authRoutes.js         # signup, login, google login, forgot/reset
+│   ├── userRoutes.js         # profile related endpoints
+│   ├── newsRoutes.js         # personalized, country, global
+│   └── bookmarkRoutes.js
+│
+├── controllers/              # Route logic
+│   ├── authController.js
+│   ├── userController.js
+│   ├── newsController.js
+│   └── bookmarkController.js
+│
+├── middleware/               # Middlewares
+│   ├── authMiddleware.js     # JWT verify
+│   └── errorMiddleware.js    # error handler
+│
+├── utils/                    # Helper functions
+│   ├── generateToken.js      # JWT creation
+│   ├── sendEmail.js          # nodemailer for forgot password
+│   └── googleVerify.js       # verify Google token
+│
+└── services/                 # 3rd party service integrations
+    └── newsService.js        # wrap calls to newsdata.io
