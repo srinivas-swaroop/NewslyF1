@@ -47,6 +47,17 @@ export const login = async (req, res) => {
   }
 };
 
+//logout
+export const logoutController = async (req, res) => {
+  try {
+    // Token will be removed on client-side
+    res.json({ message: "Logged out successfully. Please remove token client-side." });
+  } catch (err) {
+    res.status(500).json({ message: "Error logging out", error: err.message });
+  }
+};
+
+
 // Profile
 export const getProfile = async (req, res) => {
   try {
