@@ -6,6 +6,7 @@ import newsRoutes from "./routes/newsRoutes.js";
 
 dotenv.config();
 console.log("MONGO_URI from env:", process.env.MONGO_URI);
+console.log("API Key From Server:", process.env.NEWSDATA_API_KEY);
 
 const app = express();
 app.use(express.json());
