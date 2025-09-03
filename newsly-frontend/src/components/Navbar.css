@@ -2,46 +2,50 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background: white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 1.2rem 3rem;
+  background-color: #ffffff !important; /* solid white */
+  border-bottom: 1px solid #f1f1f1;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #1e3a8a; /* dark blue */
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+  color: #1a1a40; /* dark navy for clean look */
+  letter-spacing: 0.5px;
 }
 
 .nav-links {
   display: flex;
   gap: 1.5rem;
   align-items: center;
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
 }
 
 .nav-links a {
   text-decoration: none;
   font-weight: 500;
-  color: #1e293b; /* slate gray */
+  color: #1e293b;
   transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
-  color: #2563eb; /* blue */
+  color: #2563eb;
 }
 
 .btn {
-  background: #2563eb;
+  background: #3b82f6;
   color: white !important;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.6rem;
   font-weight: 500;
-  transition: background 0.2s ease;
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+  transition: background 0.25s ease;
 }
 
 .btn:hover {
-  background: #1d4ed8;
+  background: #2563eb;
 }

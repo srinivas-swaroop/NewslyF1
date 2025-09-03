@@ -11,11 +11,20 @@ export default function Home() {
       <Navbar />
       <section className="hero">
         <div className="hero-text">
-          <h1>Your world.<br />Your feed.</h1>
-          <button onClick={() => navigate("/login")}>Start Reading</button>
+          <h1>
+            Your world.
+            <br />
+            Your feed.
+          </h1>
+          <p className="hero-subtitle">
+            Stay updated with global, regional, and personalized news.
+          </p>
+          <button className="cta-btn" onClick={() => navigate("/login")}>
+            Start Reading
+          </button>
         </div>
         <div className="hero-image">
-          <img src="/globe.png" alt="Globe with news" />
+          <img src="../src/assets/globe.png" alt="Globe with news" />
         </div>
       </section>
 

@@ -17,3 +17,6 @@ export const updatePreferences = async (req, res) => {
     res.status(500).json({ message: "Error updating preferences", error: err.message });
   }
 };
+
+
+
