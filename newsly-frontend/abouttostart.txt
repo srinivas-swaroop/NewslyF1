@@ -1,1 +1,44 @@
 About to start
+newsly-frontend/
+│── public/
+│   └── illustrations/          # Static images (e.g., globe, icons)
+│
+│── src/
+│   │── App.jsx                 # Main app wrapper
+│   │── main.jsx                # Entry point
+│   │── index.css               # Tailwind base styles
+│
+│   ├── assets/                 # Any custom images/icons
+│
+│   ├── components/             # Reusable UI components
+│   │   ├── Navbar.jsx
+│   │   ├── Footer.jsx
+│   │   ├── NewsCard.jsx
+│   │   └── Loader.jsx
+│
+│   ├── pages/                  # Route-based pages
+│   │   ├── Home.jsx
+│   │   ├── GlobalNews.jsx
+│   │   ├── CountryNews.jsx
+│   │   ├── PersonalizedFeed.jsx
+│   │   ├── Login.jsx
+│   │   └── Signup.jsx
+│
+│   ├── context/                # Global context (auth, user, news)
+│   │   ├── AuthContext.jsx
+│   │   └── NewsContext.jsx
+│
+│   ├── hooks/                  # Custom hooks
+│   │   └── useFetchNews.js
+│
+│   ├── services/               # API calls
+│   │   └── api.js
+│
+│   ├── utils/                  # Helpers
+│   │   └── formatDate.js
+│
+│   └── router/                 # Routing config
+│       └── AppRouter.jsx
+│
+│── tailwind.config.js
+│── package.json
