@@ -1,11 +1,8 @@
-Sure!
-Here’s a good `README.md` you can place in the root of your MERN project (named ****) based on your folder structure and the provided `About` component:
 
----
 
 # 📰 Newsly
 
-**Newsly** is a full-stack **** + **** (MERN) web application designed to deliver **global, regional, and personalized news feeds** through a clean and modern interface.
+**Newsly** is a full-stack  (MERN) web application designed to deliver **global, regional, and personalized news feeds** through a clean and modern interface.
 
 ---
 
@@ -108,12 +105,3 @@ Then open **[http://localhost:5173](http://localhost:5173)** (or whichever port 
 
 ---
 
-## 📜 License
-
-This project is licensed under the **** — feel free to use and modify it.
-
----
-
-If you want, I can also **add screenshots + deployment instructions (like  or )** to the README to make it look professional.
-
-Would you like me to add that too?
