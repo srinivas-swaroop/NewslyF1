@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { ReactTyped } from "react-typed"; // ✅ fixed import
+import { ReactTyped } from "react-typed";
 import "./profile.css";
-
 
 export default function Profile() {
   const [user, setUser] = useState(null);
@@ -15,19 +14,19 @@ export default function Profile() {
 
   const navigate = useNavigate();
 
+  // Fetch profile
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login");
+      return;
+    }
+
     const fetchProfile = async () => {
       try {
-        const token = localStorage.getItem("token");
-        if (!token) {
-          navigate("/login");
-          return;
-        }
-
         const res = await axios.get("http://localhost:5000/api/auth/profile", {
           headers: { Authorization: `Bearer ${token}` },
         });
-
         setUser(res.data);
       } catch (err) {
         setError("Failed to load profile. Please login again.");
@@ -45,7 +44,7 @@ export default function Profile() {
   };
 
   const fetchNews = async (type) => {
-    setShowFeed(true); // switch immediately
+    setShowFeed(true);
     setLoadingNews(true);
 
     try {
@@ -91,9 +90,9 @@ export default function Profile() {
         </div>
       </nav>
 
-      {/* Main Container */}
+      {/* Main Content */}
       <div className={`main-content ${showFeed ? "feed-mode" : "profile-mode"}`}>
-        {/* Phase 1 - Profile */}
+        {/* Profile Section */}
         {!showFeed && (
           <>
             <div className="profile-section">
@@ -102,15 +101,15 @@ export default function Profile() {
               </div>
               <div className="profile-right">
                 <h2 className="typing">
-  <ReactTyped
-    strings={[`Hi ${user.name}, once more good!`, "Welcome back to Newsly!"]}
-    typeSpeed={60}
-    backSpeed={30}
-    loop={false}
-    showCursor={true}
-    cursorChar="|"
-  />
-</h2>
+                  <ReactTyped
+                    strings={[`Hi ${user.name}, welcome!`, "Your personalized news awaits."]}
+                    typeSpeed={60}
+                    backSpeed={30}
+                    loop={false}
+                    showCursor
+                    cursorChar="|"
+                  />
+                </h2>
                 <p>{user.email}</p>
                 <h4>Your Interests:</h4>
                 <div className="tag-list">
@@ -127,10 +126,7 @@ export default function Profile() {
               </div>
             </div>
 
-            {/* Divider Line */}
-            <div className="divider-line"></div>
-
-            {/* Buttons at bottom edge */}
+            {/* Feed Buttons */}
             <div className="feed-buttons bottom-fixed">
               <button onClick={() => fetchNews("global")}>🌍 Global Feed</button>
               <button onClick={() => fetchNews("country")}>🇮🇳 Country Feed</button>
@@ -139,36 +135,31 @@ export default function Profile() {
           </>
         )}
 
-        {/* Phase 2 - Feed */}
+        {/* News Feed */}
         {showFeed && (
           <>
-            {/* Floating Back Button */}
             <button className="floating-back" onClick={() => setShowFeed(false)}>←</button>
-
             <div className="feed-buttons">
               <button onClick={() => fetchNews("global")}>🌍 Global Feed</button>
               <button onClick={() => fetchNews("country")}>🇮🇳 Country Feed</button>
               <button onClick={() => fetchNews("personalized")}>⭐ Personalized Feed</button>
             </div>
-
             <div className="news-grid">
               {loadingNews ? (
                 <p className="loading-text">Fetching news...</p>
               ) : news.length > 0 ? (
-                news
-                  .filter((item) => item.image_url)
-                  .map((item, idx) => (
-                    <div key={idx} className="news-card">
-                      <img src={item.image_url} alt={item.title} />
-                      <div className="news-content">
-                        <h4>{item.title}</h4>
-                        <p>{item.description || "No description available."}</p>
-                        <a href={item.link} target="_blank" rel="noreferrer">
-                          Read more →
-                        </a>
-                      </div>
+                news.filter((item) => item.image_url).map((item, idx) => (
+                  <div key={idx} className="news-card">
+                    <img src={item.image_url} alt={item.title} />
+                    <div className="news-content">
+                      <h4>{item.title}</h4>
+                      <p>{item.description || "No description available."}</p>
+                      <a href={item.link} target="_blank" rel="noreferrer">
+                        Read more →
+                      </a>
                     </div>
-                  ))
+                  </div>
+                ))
               ) : (
                 <p className="no-news">No news loaded.</p>
               )}
