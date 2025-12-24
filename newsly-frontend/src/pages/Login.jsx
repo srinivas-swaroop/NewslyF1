@@ -64,6 +64,16 @@ export default function Login() {
             <button type="submit" className="cta-btn">Login</button>
           </form>
 
+          <button
+  className="google-btn"
+  onClick={() => {
+    window.open("http://localhost:5000/api/auth/google", "_self");
+  }}
+>
+  Login with Google
+</button>
+
+
           <p className="signup-text">
             Don’t have an account?{" "}
             <a href="/signup" className="signup-link">Sign up →</a>

@@ -4,7 +4,7 @@ import About from "./pages/About";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
-
+import OAuthSuccess from "./pages/OAuthSuccess";
 
 export default function App() {
   return (
@@ -14,6 +14,7 @@ export default function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/oauth-success" element={<OAuthSuccess />} />
     </Routes>
   );
 }
